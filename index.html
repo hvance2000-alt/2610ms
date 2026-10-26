@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Hobbies & Present Simple - ESL Exercise</title>
+    <style>
+        :root {
+            --spring: #4CAF50;
+            --summer: #FFC107;
+            --autumn: #FF5722;
+            --winter: #03A9F4;
+            --bg: #f4f7f6;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-top: 30px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .instructions {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 5px solid #03A9F4;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .question {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+
+        .question:hover {
+            background: #f0f0f0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input[type="text"], select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-top: 5px;
+            width: 150px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #03A9F4;
+            outline: none;
+        }
+
+        input.correct, select.correct {
+            border-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+
+        input.incorrect, select.incorrect {
+            border-color: #f44336;
+            background-color: #ffebee;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 0 10px;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        button.reset-btn {
+            background-color: #95a5a6;
+        }
+
+        button.reset-btn:hover {
+            background-color: #7f8c8d;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .score-good { background-color: #d4edda; color: #155724; }
+        .score-ok { background-color: #fff3cd; color: #856404; }
+        .score-bad { background-color: #f8d7da; color: #721c24; }
+
+        .highlight-spring { border-left: 4px solid var(--spring); }
+        .highlight-summer { border-left: 4px solid var(--summer); }
+        .highlight-autumn { border-left: 4px solid var(--autumn); }
+        .highlight-winter { border-left: 4px solid var(--winter); }
+
+        .hint {
+            font-size: 0.85rem;
+            color: #777;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Seasonal Hobbies & Present Simple</h1>
+    
+    <div class="instructions">
+        <strong>Instructions:</strong> Complete the sentences using the Present Simple tense. Pay attention to the season and the subject (he, she, it, they, I). Use the verb in brackets to help you. 
+        <br><br>
+        <em>Vocabulary: pick mushrooms, sunbathe, do gardening, build a snowman, go ice skating, carve a pumpkin, go on vacation, go swimming, fly a kite.</em>
+    </div>
+
+    <form id="exercise-form">
+        
+        <!-- SECTION 1: POSITIVE -->
+        <h2>Part 1: Present Simple (Positive)</h2>
+        <div class="question highlight-spring">
+            <label>1. In spring, my mother <input type="text" id="q1" placeholder="(do)"> gardening.</label>
+        </div>
+        <div class="question highlight-summer">
+            <label>2. In summer, they <input type="text" id="q2" placeholder="(go)"> on vacation.</label>
+        </div>
+        <div class="question highlight-autumn">
+            <label>3. In autumn, he <input type="text" id="q3" placeholder="(pick)"> mushrooms in the forest.</label>
+        </div>
+        <div class="question highlight-winter">
+            <label>4. In winter, she <input type="text" id="q4" placeholder="(build)"> a snowman.</label>
+        </div>
+        <div class="question highlight-spring">
+            <label>5. In spring, we <input type="text" id="q5" placeholder="(fly)"> a kite in the park.</label>
+        </div>
+
+        <!-- SECTION 2: NEGATIVE -->
+        <h2>Part 2: Present Simple (Negative)</h2>
+        <div class="question highlight-winter">
+            <label>6. I <input type="text" id="q6" placeholder="(not / go)"> ice skating in summer.</label>
+        </div>
+        <div class="question highlight-autumn">
+            <label>7. She <input type="text" id="q7" placeholder="(not / carve)"> a pumpkin in spring.</label>
+        </div>
+        <div class="question highlight-summer">
+            <label>8. They <input type="text" id="q8" placeholder="(not / sunbathe)"> in winter.</label>
+        </div>
+
+        <!-- SECTION 3: YES/NO QUESTIONS -->
+        <h2>Part 3: Present Simple (Yes/No Questions)</h2>
+        <div class="question highlight-summer">
+            <label>9. <select id="q9a"><option value="">--</option><option value="Do">Do</option><option value="Does">Does</option></select> you <input type="text" id="q9b" placeholder="(go)"> swimming in summer?</label>
+        </div>
+        <div class="question highlight-autumn">
+            <label>10. <select id="q10a"><option value="">--</option><option value="Do">Do</option><option value="Does">Does</option></select> he <input type="text" id="q10b" placeholder="(pick)"> mushrooms in autumn?</label>
+        </div>
+        <div class="question highlight-winter">
+            <label>11. <select id="q11a"><option value="">--</option><option value="Do">Do</option><option value="Does">Does</option></select> they <input type="text" id="q11b" placeholder="(go)"> ice skating in winter?</label>
+        </div>
+
+        <!-- SECTION 4: WH-QUESTIONS & WHO-QUESTIONS -->
+        <h2>Part 4: Present Simple (Wh- Questions & Who- Questions)</h2>
+        <div class="question highlight-summer">
+            <label>12. <select id="q12"><option value="">--</option><option value="What">What</option><option value="Who">Who</option><option value="When">When</option></select> do you usually do in summer?</label>
+        </div>
+        <div class="question highlight-winter">
+            <label>13. <select id="q13"><option value="">--</option><option value="What">What</option><option value="Who">Who</option><option value="When">When</option></select> builds a snowman in your family?</label>
+        </div>
+        <div class="question highlight-spring">
+            <label>14. <select id="q14"><option value="">--</option><option value="What">What</option><option value="Who">Who</option><option value="When">When</option></select> does she fly a kite? In spring.</label>
+        </div>
+        <div class="question highlight-autumn">
+            <label>15. <select id="q15"><option value="">--</option><option value="What">What</option><option value="Who">Who</option><option value="When">When</option></select> do they carve pumpkins? In autumn.</label>
+        </div>
+
+        <div class="btn-container">
+            <button type="button" onclick="checkAnswers()">Check Answers</button>
+            <button type="button" class="reset-btn" onclick="resetExercise()">Reset</button>
+        </div>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    // Define the correct answers. We use arrays for questions with multiple blanks.
+    const answers = {
+        q1: ["does"],
+        q2: ["go"],
+        q3: ["picks"],
+        q4: ["builds"],
+        q5: ["fly"],
+        q6: ["don't go", "do not go"],
+        q7: ["doesn't carve", "does not carve"],
+        q8: ["don't sunbathe", "do not sunbathe"],
+        q9: ["do", "go"],
+        q10: ["does", "pick"],
+        q11: ["do", "go"],
+        q12: ["what"],
+        q13: ["who"],
+        q14: ["when"],
+        q15: ["when"]
+    };
+
+    function checkAnswers() {
+        let score = 0;
+        let totalQuestions = 15; // Total number of questions (some have multiple inputs)
+        let correctCount = 0;
+
+        // Helper function to check a single input
+        function checkInput(id, validAnswers, isSelect = false) {
+            const element = document.getElementById(id);
+            let userAnswer = element.value.toLowerCase().trim();
+            
+            // Remove extra spaces for text inputs
+            if (!isSelect) {
+                userAnswer = userAnswer.replace(/\s+/g, ' ');
+            }
+
+            // Check if the answer is in the valid array
+            if (validAnswers.includes(userAnswer)) {
+                element.classList.add('correct');
+                element.classList.remove('incorrect');
+                return true;
+            } else {
+                element.classList.add('incorrect');
+                element.classList.remove('correct');
+                return false;
+            }
+        }
+
+        // --- Part 1 ---
+        if (checkInput('q1', answers.q1)) correctCount++;
+        if (checkInput('q2', answers.q2)) correctCount++;
+        if (checkInput('q3', answers.q3)) correctCount++;
+        if (checkInput('q4', answers.q4)) correctCount++;
+        if (checkInput('q5', answers.q5)) correctCount++;
+
+        // --- Part 2 ---
+        if (checkInput('q6', answers.q6)) correctCount++;
+        if (checkInput('q7', answers.q7)) correctCount++;
+        if (checkInput('q8', answers.q8)) correctCount++;
+
+        // --- Part 3 (Handling Select + Input pairs) ---
+        // Q9
+        const q9aCorrect = checkInput('q9a', [answers.q9[0]], true);
+        const q9bCorrect = checkInput('q9b', [answers.q9[1]]);
+        if (q9aCorrect && q9bCorrect) correctCount++;
+
+        // Q10
+        const q10aCorrect = checkInput('q10a', [answers.q10[0]], true);
+        const q10bCorrect = checkInput('q10b', [answers.q10[1]]);
+        if (q10aCorrect && q10bCorrect) correctCount++;
+
+        // Q11
+        const q11aCorrect = checkInput('q11a', [answers.q11[0]], true);
+        const q11bCorrect = checkInput('q11b', [answers.q11[1]]);
+        if (q11aCorrect && q11bCorrect) correctCount++;
+
+        // --- Part 4 ---
+        if (checkInput('q12', answers.q12, true)) correctCount++;
+        if (checkInput('q13', answers.q13, true)) correctCount++;
+        if (checkInput('q14', answers.q14, true)) correctCount++;
+        if (checkInput('q15', answers.q15, true)) correctCount++;
+
+        // Display Results
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        
+        if (correctCount === totalQuestions) {
+            resultDiv.className = 'score-good';
+            resultDiv.innerHTML = `🎉 Perfect! You got ${correctCount} out of ${totalQuestions} correct!`;
+        } else if (correctCount >= 10) {
+            resultDiv.className = 'score-ok';
+            resultDiv.innerHTML = `👍 Good job! You got ${correctCount} out of ${totalQuestions} correct. Try again to get a perfect score!`;
+        } else {
+            resultDiv.className = 'score-bad';
+            resultDiv.innerHTML = `📚 Keep practicing! You got ${correctCount} out of ${totalQuestions} correct. Review the Present Simple rules.`;
+        }
+    }
+
+    function resetExercise() {
+        // Clear all text inputs
+        const textInputs = document.querySelectorAll('input[type="text"]');
+        textInputs.forEach(input => {
+            input.value = '';
+            input.classList.remove('correct', 'incorrect');
+        });
+
+        // Reset all select dropdowns
+        const selects = document.querySelectorAll('select');
+        selects.forEach(select => {
+            select.value = '';
+            select.classList.remove('correct', 'incorrect');
+        });
+
+        // Hide result box
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'none';
+        resultDiv.innerHTML = '';
+    }
+</script>
+
+</body>
+</html>
